@@ -1,4 +1,4 @@
-const A=[
+const OLD=[
 ["Dark Academia","Candlelit libraries where rain taps the window and every sentence feels important.",[["#2b1d14","Inkwell Brown"],["#5a3e2b","Library Leather"],["#8c7a5b","Foxed Paper"],["#c9b78f","Taper Wax"]],["Brass fountain pen","Leather commonplace book","Half-melted taper candle"]],
 ["Cottagecore","Slow Sunday mornings in a garden where the bread is always rising.",[["#f2e8d5","Flour Dust"],["#a9b88a","Sage Clipping"],["#d98e84","Rosehip Blush"],["#7a5c3e","Wicker Basket"]],["Linen apron","Enamel jug of wildflowers","Wooden rolling pin"]],
 ["Y2K Chrome","A mall at midnight in 2001, glossy with the future.",[["#c6d4e1","Liquid Chrome"],["#ff7ac8","Bubblegum Gloss"],["#5ee0ff","Aqua Ping"],["#3b3f8c","Flip Phone Indigo"]],["Translucent flip phone","Butterfly hair clips","Inflatable armchair"]],
@@ -21,6 +21,112 @@ const A=[
 ["Forest Witchcore","Herb-scented hearths, moonlit rituals, and a kitchen full of jars.",[["#2f3f2c","Hedge Green"],["#6b4a6b","Nightshade Plum"],["#c9a66b","Beeswax"],["#e4dccb","Moon Chalk"]],["Bundle of dried herbs","Stone mortar and pestle","Pewter candlestick"]]
 ];
 
+
+const mk=(n,d,hx,nm,ob)=>{const hs=hx.split(' '),ns=nm.split('|');return [n,d,hs.map((x,i)=>['#'+x,ns[i]]),ob.split('|')]};
+const ao=(n,old,hx,nm)=>{const o=OLD.find(x=>x[0]===old);return mk(n,o[1],hx,nm,o[3].join('|'))};
+const A=[
+ao("Dark Academia","Dark Academia","2B2118 5C4033 C2B280 1C1917","Espresso|Mahogany|Aged Parchment|Fountain Ink"),
+mk("Light Academia","Sunlit reading rooms, linen sleeves, and tea beside an open window.","F5F0E6 D8C3A5 8E8D8A A67B5B","Linen|Oatmeal|Limestone|Warm Chai","Cream-paged poetry anthology|Porcelain teacup|Pressed-flower bookmark"),
+mk("Chaotic Academia","Stacked books, coffee rings, and a thrifted sweater that has survived three all-nighters.","3D312E 9E472A D9CFC1 556B2F","Coffee Stain|Rust Sweater|Dog-Eared Page|Thrifted Olive","Coffee-stained notebook|Chewed pencil|Mismatched mug"),
+mk("Romantic Academia","Candlelit love letters, dried roses, and poetry read aloud by a window.","E8D5D5 8A4F5B F7F3EE 4A3B3C","Blush Silk|Dried Rose|Vellum|Sepia","Wax-sealed letter|Rose pressed between pages|Silver letter opener"),
+mk("Art Academia","A paint-speckled studio where charcoal dust settles on everything.","E6E2D8 363636 B85D43 7A8B99","Raw Canvas|Vine Charcoal|Terracotta Clay|Turpentine Blue","Wooden easel|Tin of charcoal sticks|Paint-smudged apron"),
+mk("Spiffy Academia","Tweed jackets, crisp collars, and a perfectly knotted tie before the lecture.","1E2D2F 6E260E D4AF37 EDE6D6","Hunter Tweed|Oxblood|Brass Nib|Crisp Collar","Gold-nibbed pen|Leather satchel|Brass collar pin"),
+mk("Green Academia","Greenhouse mornings where botany notes and damp soil share the desk.","2D4739 708238 E5DEC9 5C4A38","Conservatory Moss|Pressed Fern|Herbarium Paper|Rich Soil","Pressed-fern herbarium folio|Brass watering can|Terracotta pot of seedlings"),
+mk("Theatre Academia","Velvet curtains, ghost lights, and a script marked in three colors of pencil.","630D16 141414 D4AF37 F2E8DC","Stage Velvet|Backstage Shadow|Gilded Trim|Script Paper","Annotated script|Opera glasses|Velvet curtain tassel"),
+mk("Royal Academia","Crests, signet rings, and marble halls where tradition has the final word.","1B263B 780000 C5A059 F8F9FA","Regal Navy|Crimson Crest|Signet Gold|Marble","Signet ring|Wax-sealed scroll|Crested stationery"),
+mk("Poet’s Cliff","Windswept cliffs, wool coats, and verses scribbled on a ferry ticket.","4A5568 A0AEC0 2D3748 E2E8F0","Slate Cliff|Sea Mist|Wool Overcoat|Typewriter Bond","Battered typewriter|Notebook of verse|Wool overcoat"),
+mk("Old Hollywood Glamour","Silver-screen spotlights, satin gloves, and champagne after the premiere.","800020 F3E5AB 121212 C0C0C0","Oxblood Lip|Champagne Satin|Cinema Noir|Silver Screen","Satin opera gloves|Film-reel canister|Bulb-lit vanity mirror"),
+ao("Mid-Century Modern","Mid-Century Modern","D96B27 6B8E23 2A6F97 8B5A2B","Burnt Orange|Avocado|Peacock Teal|Warm Teak"),
+mk("1950s Rockabilly","Cherry-red convertibles, jukebox glow, and a pompadour that defies gravity.","D90429 1D1E2C F8F9FA 48CAE4","Cherry Red|Leather Black|Polka White|Diner Chrome","Jukebox|Polka-dot swing skirt|Pomade tin"),
+mk("1960s Mod","Bold geometry, go-go boots, and a Vespa parked outside the discotheque.","FF5400 FFBD00 FFFFFF 000000","Tangerine|Marigold|Go-Go White|Graphic Black","Vespa scooter|Op-art poster|White go-go boots"),
+mk("1970s Boho","Fringe, afternoon haze, and a record player humming in a plant-filled room.","C87D55 D4A373 582F0E A3B18A","Suede Tan|Amber|Saddle Brown|Macramé Sage","Macramé wall hanging|Vinyl record|Suede fringe bag"),
+mk("1980s Synthwave","Neon grids, chrome sunsets, and a highway that never ends.","FF007F 00F0FF 240046 FF9E00","Neon Magenta|Electric Cyan|Midnight Grid|Chrome Sunset","Cassette deck|Neon grid poster|Retro sports-car model"),
+ao("1990s Grunge","90s Grunge","4A1C1C 3B4252 5E6452 1E1E1E","Flannel Maroon|Faded Denim|Army Surplus|Scuffed Leather"),
+mk("Y2K Futurism","Glossy pink plastic, translucent gadgets, and the future arriving in bubblegum.","FF69B4 00BFFF C0C0C0 E0AAFF","Frosted Pink|Translucent Blue|Liquid Silver|Cyber Lilac","Frosted flip phone|Glitter gel pen|Metallic platform sneakers"),
+ao("Victorian Gothic","Victorian Gothic","1A0F14 4A1525 6C757D D8CFC4","Mourning Black|Claret Lace|Wrought Iron|Cameo Ivory"),
+mk("Rococo","Powder-pink parlors, gilded curves, and a tea party that never ends.","F7CAD0 BDE0FE E6C27A FFFDF9","Powder Pink|Pastel Sky|Gilded Gold|Porcelain","Gilded mirror|Porcelain shepherdess figurine|Silver tea service"),
+mk("Regency Ball","Empire waists, garden strolls, and a ball where one glance means everything.","D8E2DC FFE5D9 F4ACB7 FAF9F6","Celadon Silk|Empire Peach|Rosewater|Pearl","Paper fan|Embroidered reticule|Calling card"),
+mk("Edwardian","Pintucked blouses, straw boaters, and a lawn party in a long summer.","FAF3E0 B7C9E2 C8B6A6 7D8471","Pintuck Cream|Periwinkle|Straw Boater|Conservatory Sage","Straw boater|Lace parasol|Pocket watch"),
+mk("Art Nouveau","Whiplash curves, lilies, and a peacock feather in every doorway.","4F772D D4A373 90A955 31572C","Peacock Green|Antique Brass|Lily Pad|Stained Emerald","Peacock-feather comb|Stained-glass lamp|Enamel lily brooch"),
+ao("Art Deco","Art Deco","0D1B2A D4AF37 1B4332 F4F1DE","Midnight Onyx|Gatsby Gold|Malachite|Ivory"),
+mk("Roaring Twenties","Sequins, saxophones, and a speakeasy door that opens for the right password.","1C1C1C E5C158 8C2F39 D9D9D9","Sequined Black|Champagne Coupe|Speakeasy Velvet|Platinum","Saxophone|Feathered headband|Password card"),
+ao("Cottage Garden","Cottagecore","F4EFE6 A3B18A E6B8A2 8B5E34","Sourdough Crumb|Meadow Sage|Wildflower Blush|Wicker"),
+ao("Goblin Den","Goblincore","3A4F41 6B4423 A68A64 8F9779","Deep Moss|Forest Mud|Pebble|Lichen"),
+mk("Fairy Glade","Dewdrop mornings, gossamer wings, and a mushroom ring that might be a doorway.","E0FBFC CDB4DB B5E48C FFC8DD","Dewdrop|Gossamer Lilac|Willow Leaf|Petal Pink","Jar of fireflies|Acorn-cap teacup|Spider-silk ribbon"),
+mk("Mossgaze","A quiet forest floor in blue-green fog, softly overgrown.","1B2620 4A5D4E 8C9A9E 2C3639","Forest Shadow|Damp Fern|Pine Fog|Wet Bark","Moss-covered stone|Foggy lantern|Fallen birch log"),
+mk("Cabin Hearth","Cedar smoke, wool blankets, and a snowed-in afternoon with nowhere to be.","5C2C16 8C1C13 283618 DDA15E","Cedar Log|Wool Blanket Red|Evergreen|Hearth Ember","Cast-iron stove|Plaid wool blanket|Enamel camp mug"),
+ao("Coastal Grandmother","Coastal Grandmother","FFFFFF 89CFF0 D2B48C 2B4C7E","Crisp Linen|Hydrangea Blue|Woven Tote|Nautical Navy"),
+mk("Beachcomber","Low tide at dawn, pockets full of sea glass, salt in your hair.","E0DCD3 A8DADC F1FAEE C2B280","Driftwood|Sea Glass|Sea Foam|Wet Sand","Jar of sea glass|Driftwood plank|Spiral shell"),
+mk("Desert Minimalism","Sun-baked walls, sparse shade, and one perfect cactus in a clay pot.","C66B3D E6CCB2 8A9A5B DDB892","Terracotta|Adobe|Sagebrush|Golden Dune","Terracotta vase|Woven rug|Dried pampas stems"),
+mk("Tropical Maximalism","Hibiscus, mango, and a monstera in every corner of a loud, joyful room.","1B4332 FF0054 FF9F1C 00BBF9","Monstera|Hibiscus|Mango|Lagoon","Rattan peacock chair|Banana-leaf cushion|Bowl of cut mango"),
+mk("Nordic Frost","A snowfield at dawn, birch bark, and breath you can see.","CAF0F8 F8F9FA 6C757D D4C5B9","Glacial Ice|Snowfield|Fjord Stone|Birch Wood","Wool mittens|Birch-bark candle holder|Frosted pine branch"),
+mk("Autumnal","Crunchy maple leaves, corduroy, and cinnamon steaming from a mug.","9B2226 CA6702 606C38 BB9457","Maple Leaf|Pumpkin Spice|Corduroy Olive|Cinnamon","Corduroy jacket|Cinnamon-stick bundle|Pile of maple leaves"),
+mk("Spring Awakening","Cherry blossoms, rain puddles, and the first warm window left open.","FFB7C5 B7E4C7 A2D2FF FFF3B0","Cherry Blossom|Fresh Grass|Rain Puddle|Daffodil","Cherry-blossom branch|Rain boots|Daffodil in a jam jar"),
+mk("Solarpunk","Rooftop gardens, solar glass, and a hopeful city powered by sunlight.","2D6A4F FFB703 8ECAE6 F4F1DE","Canopy Green|Solar Gold|Clear Sky|Raw Linen","Glass terrarium|Bicycle with a crate of herbs|Solar lantern"),
+mk("Jungle Canopy","Humid rainforest canopy, expedition khaki, and a toucan somewhere above.","132A13 4F772D A4AC86 E07A5F","Rainforest Canopy|Vine Green|Expedition Khaki|Toucan Coral","Binoculars|Safari field journal|Hanging vine basket"),
+mk("Stargazer","A midnight hilltop, a brass telescope, and the Milky Way unfurling overhead.","0B132B 1C2541 C5A059 E0E1DD","Midnight Sky|Deep Indigo|Brass Telescope|Starlight","Brass telescope|Star chart|Thermos of cocoa"),
+ao("Cyberpunk","Cyberpunk Neon","090A0F FF003C 00F0FF FCEE09","Asphalt|Neon Crimson|Hologram Cyan|Acid Yellow"),
+mk("Steampunk","Polished brass, whirring gears, and an airship waiting at the dock.","B5835A 4A2C2A 2B2D42 D9C5B2","Polished Brass|Oiled Leather|Coal Smoke|Blueprint","Brass goggles|Clockwork compass|Leather-bound journal"),
+mk("Dieselpunk","Riveted steel, aviator leather, and a prop engine roaring in the hangar.","3D405B 6B4423 5C5346 C4A484","Riveted Steel|Aviator Leather|Motor Oil|Khaki Canvas","Aviator helmet|Riveted toolbox|Oil-stained map"),
+mk("Atompunk","Atomic-age optimism in coral, mint, and chrome, with a raygun on the diner counter.","FF6B6B 4ECDC4 F7FFF7 FFE66D","Retro Coral|Formica Mint|Chrome White|Raygun Yellow","Boomerang-pattern Formica table|Chrome toaster|Toy raygun"),
+mk("Biopunk","A glowing lab where something green is quietly learning to grow.","0A192F 00FF87 9D4EDD 38B000","Abyssal Lab|Bioluminescent Green|Mutagen Violet|Algae","Petri dish|Glowing test-tube rack|Bioluminescent specimen jar"),
+ao("Frutiger Aero","Frutiger Aero","00A8E8 70E000 FFFFFF FF9E00","Glossy Sky|Vibrant Hill|Water Droplet|Clownfish Orange"),
+ao("Vaporwave","Vaporwave","FF71CE 01CDFE B967FF E5E5E5","Neon Pink|Mall Cyan|Retro Purple|Marble Bust"),
+mk("Dial-Up Web","Hyperlink blue, gray window chrome, and a guestbook from a website nobody visits anymore.","0000FF C0C0C0 FF00FF 00FF00","Hyperlink Blue|Windows Grey|Pixel Magenta|Matrix Lime","Beige tower PC|Dial-up modem|Burned CD-R labeled in marker"),
+mk("Lo-Fi","A rainy window, a warm desk lamp, and a soft beat looping past midnight.","2B2D42 F4A261 6D597A 355070","Rainy Window|Warm Desk Lamp|Twilight Purple|Midnight Vinyl","Desk lamp|Vinyl turntable|Steaming mug beside a notebook"),
+mk("Deep Space","Deep vacuum, violet nebulae, and the hush of floating beyond a visor.","000000 480CA8 D8E2DC B5179E","Deep Vacuum|Nebula Violet|Astronaut Suit|Cosmic Dust","Astronaut helmet|Star projector|Mission patch"),
+mk("Soft Grunge","Thrifted cardigans, smudged eyeliner, and pastel light through a bedroom window.","D8BFD8 2F2F2F 8B7D7B F5E6E8","Pastel Thistle|Faded Black|Ash|Washed Blush","Oversized cardigan|Polaroid camera|String of fairy lights"),
+mk("Trad Goth","Black velvet, silver ankhs, and a dance floor under fog.","0A0A0A 590D22 4A0E4E C0C0C0","Pitch Black|Dark Crimson|Velvet Plum|Silver Ankh","Silver ankh pendant|Lace gloves|Black pillar candle"),
+mk("Pastel Goth","Candy-sweet and a little haunted, with lavender hair and a heart-shaped coffin purse.","E0BBE4 1A1A1D FFDFD3 957DAD","Lavender Hair|Choker Black|Baby Peach|Spooky Mauve","Heart-shaped coffin purse|Jar of lavender hair dye|Black choker with a charm"),
+mk("Cyber Goth","UV rave lights, latex shine, and a club where the fog glows green.","0F0F0F 39FF14 FF10F0 1F51FF","Latex Black|UV Neon Green|Rave Pink|Electric Blue","Welding goggles|Neon glow sticks|Platform boots"),
+mk("Punk","Safety pins, tartan, and a basement show with the volume all the way up.","111111 C1121F D9D9D9 F8F9FA","Studded Leather|Tartan Red|Safety Pin|Zine Paper","Studded leather jacket|Safety-pin zine|Tartan patch"),
+mk("Emo","Eyeliner, checkered laces, and a song on repeat that explains everything.","121212 800000 FFFFFF 495057","Eyeliner Black|Dark Maroon|Checkered White|Asphalt","Checkered sneakers|Studded belt|Burned mix CD"),
+mk("Scene","Neon streaks, raccoon stripes, and a camera-flash selfie in a bedroom mirror.","FF007F 00FFFF CCFF00 000000","Hot Magenta|Electric Cyan|Highlighter Lime|Raccoon Stripe","Rainbow arm warmers|Neon hair extensions|Digital camera"),
+mk("Skater","Scuffed decks, grip tape, and an empty parking lot at golden hour.","556B2F D2B48C A8DADC 333333","Cargo Olive|Grip Tape Tan|Faded Skate Blue|Scuffed Canvas","Worn skateboard deck|Canvas sneakers|Roll of grip tape"),
+mk("Techwear","Matte shells, tactical straps, and a rainy city commute in black.","141414 2B2D42 4A4E69 FF5400","Matte Gore-Tex|Tactical Slate|Carbon Grey|Utility Tag","Waterproof shell jacket|Modular utility vest|Carabiner key clip"),
+mk("Trail Gear","Fleece, carabiners, and a trail map folded into the pocket of a storm shell.","2D6A4F E76F51 E9C46A 264653","Trail Pine|Carabiner Coral|Fleece Mustard|Storm Shell","Hiking boots|Insulated flask|Folded trail map"),
+mk("Streetwear","Heavyweight hoodies, limited drops, and a sneaker line wrapping around the block.","181818 EAE2B7 D62828 8D99AE","Heavyweight Black|Cream Hoodie|Drop Red|Concrete","Heavyweight hoodie|Boxed sneakers|Fitted cap"),
+mk("Acubi","Seoul-minimal knits, soft grays, and a quiet cool that never tries too hard.","1C1C1C A5A5A5 F5F5F5 5C5470","Charcoal Knit|Distressed Grey|Stark White|Muted Ash","Distressed knit cardigan|Slim shoulder bag|Wired earbuds"),
+mk("Indie Sleaze","Flash-lit nights, smudged kohl, and a metallic mini under a borrowed jacket.","101010 D4AF37 C0C0C0 7209B7","Smudged Kohl|Flash Gold|Metallic Mini|Club Neon","Disposable camera|Metallic mini skirt|Skinny scarf"),
+mk("Visual Kei","Theatrical black, dramatic eyeliner, and a stage lit like a gothic cathedral.","0D0208 800F2F 3A0CA3 E5E5E5","Theatrical Black|Gothic Rose|Royal Indigo|Porcelain Stage","Studded stage boots|Lace-trimmed cuffs|Rose-print guitar strap"),
+mk("Harajuku Decora","Rainbow hair clips, layered plushies, and a candy-colored avalanche of accessories.","FF4D6D FFBE0B 3A86FF 8338EC","Strawberry Clip|Canary Yellow|Toy Blue|Grape Pop","Strawberry hair clips|Stacked bead bracelets|Pastel plush toy"),
+mk("Coquette","Satin bows, pearl-cream lace, and a letter sealed with a cherry-red kiss.","FAD2E1 FFF1E6 E2ECE9 C9184A","Satin Ribbon|Pearl Cream|Porcelain Blue|Cherry Lip","Satin hair bow|Pearl necklace|Heart-shaped locket"),
+mk("Ballet Studio","Pointe-shoe ribbons, chalk dust, and a barre in morning light.","F8EDEB FCD5CE D8E2DC ECE4DB","Pointe Silk|Tulle Blush|Warm-Up Grey|Chalk","Satin pointe shoes|Wrap cardigan|Rosin box"),
+mk("Porcelain Doll","Lace collars, Mary Janes, and a tea set laid for two dolls.","FFE5EC FFFFFF 1D1E2C BDE0FE","Porcelain Cheek|Lace Collar|Mary Jane Black|Ribbon Blue","Mary Jane shoes|Lace collar|Porcelain doll"),
+mk("Storybook Princess","Rose gardens, chiffon, and a tiara forgotten on a palace windowsill.","F4ACB7 FFE5D9 E6C27A D8E2DC","Rose Garden|Chiffon|Tiara Gold|Palace Mint","Gold tiara|Chiffon gloves|Rose-gold hand mirror"),
+mk("Cloud Angel","Feathered wings, halo light, and a heaven of soft marble and mist.","FFFFFF FAF3DD E8E8E4 D8E2DC","Feathered Wing|Halo Gold|Marble Cherub|Cloud Mist","Feathered wings|Gold halo headband|Marble cherub figurine"),
+mk("Orchard Summer","Heart-shaped sunglasses, white sundresses, and long afternoons in an orchard.","D90429 FFF0F3 80B918 FFB3C1","Heart Sunglasses|Sundress White|Orchard Grass|Sunburn Pink","Straw sun hat|Wicker picnic basket|Heart-shaped sunglasses"),
+mk("Soft Girl","Pastel clouds, butter-yellow cardigans, and a milkshake after tennis.","FFC8DD BDE0FE FFF3B0 FFFFFF","Cloud Pink|Baby Blue|Butter Yellow|Tennis Skirt","Pleated tennis skirt|Pastel gel pens|Heart sticker sheet"),
+mk("McBling","Velour tracksuits, rhinestone everything, and a flip phone dripping with charms.","FF1493 FFB6C1 E5E4E2 FFFFFF","Velour Hot Pink|Gloss Pink|Rhinestone|French Tip","Rhinestone flip phone|Velour tracksuit|Charm bracelet"),
+mk("Whimsigoth","Velvet moons, amethyst crystals, and a ’90s witch-show set full of stars.","240046 5A189A FF9E00 10002B","Celestial Velvet|Amethyst|Crescent Gold|Midnight Sky","Crescent-moon wall hanging|Amethyst cluster|Pendulum necklace"),
+mk("Lolita","Lace, tea parties, and a parasol twirled over a bell-shaped skirt.","800020 FFF8F0 1A1A1A E6B8A2","Burgundy Velvet|Antique Lace|Parasol Black|Tea Rose","Lace parasol|Bell-shaped petticoat|Tea-rose headdress"),
+mk("Granny’s Parlor","Cross-stitch cushions, apple pie cooling, and a doily on every surface.","F4E4BA C88A8A 8FA998 FAF6F0","Apple Pie Crust|Teacup Rose|Cross-Stitch Sage|Doily White","Crocheted doily|Cross-stitch sampler|Floral teapot"),
+mk("Grandpa’s Den","Corduroy armchairs, argyle sweaters, and a half-finished crossword.","5C4033 3B5249 D4A373 E6CCB2","Corduroy Brown|Argyle Green|Watch Leather|Oatmeal Vest","Pocket watch|Argyle vest|Crossword book with a stubby pencil"),
+mk("Warm Glow","Golden-hour light spilling across a knit blanket.","F4A261 E76F51 E9C46A F8EDEB","Golden Hour|Toasted Amber|Honey Light|Soft Knit","Honey-colored lamp|Chunky knit throw|Amber glass candle"),
+mk("Cozy Gamer","Pastel keycaps, LED glow, and a blanket fort by the monitor.","E0B1CB BE95C4 F2E9E4 9F86C0","Pastel Keycap|LED Lilac|Desk Mat Cream|Twilight Glow","Pastel mechanical keyboard|Headset|Fuzzy blanket"),
+mk("Honey Hive","Dripping honey, clover fields, and the low hum of a happy hive.","FFB703 FB8500 FFF3B0 606C38","Dripping Honey|Amber Comb|Beeswax|Clover Field","Wooden honey dipper|Beeswax candle|Jar of honeycomb"),
+mk("Café Corner","Chalkboard menus, steaming oat-milk lattes, and rain on the window.","4A2C2A D4A373 2B2D42 F5EBE0","Espresso|Steamed Oat Milk|Chalkboard|Ceramic Mug","Chalkboard menu|Ceramic latte mug|Brown-paper pastry bag"),
+mk("Bookstore Girl","Canvas totes, cracked-spine paperbacks, and a scarf pulled up in the aisle.","D5BDAF 8D5B4C EDEDE9 3D405B","Canvas Tote|Leather Spine|Paperback Page|Scarf Navy","Canvas tote|Dog-eared paperback|Bookshop bookmark"),
+mk("Slumber","Chamomile tea, plush duvets, and a flannel hush after the lights go out.","E2ECE9 F0EFEB BEE1E6 DFE7FD","Chamomile|Plush Duvet|Flannel Blue|Dream Mist","Chamomile tea tin|Flannel pajamas|Plush duvet"),
+mk("Summer Memories","Disposable-camera flashes, firefly evenings, and a VHS tape of someone’s birthday.","F4A261 90BE6D F9C74F 577590","Disposable Flash|Summer Grass|Firefly Glow|VHS Blue","Disposable camera|VHS tape|Mason-jar lantern"),
+mk("Storybook","Woodland paths, cobblestone lanes, and a lantern lit in a cottage window.","6B705C CB997E FFE8D6 DDB892","Woodland Moss|Cobblestone|Watercolor Page|Brass Lantern","Brass lantern|Watercolor picture book|Woven forest basket"),
+mk("Liminal Space","Fluorescent hallways, an empty pool at night, and the feeling that someone just left.","E9EDC9 0077B6 CED4DA 343A40","Fluorescent Yellow|Night Pool Blue|Empty Hallway|Exit Shadow","Humming fluorescent tube|Exit sign|Pool-edge ladder"),
+mk("Lucid Dream","Pastel clouds, half-remembered rooms, and a horizon that keeps moving.","FFAFCC A2D2FF CDB4DB FFF3B0","Surreal Cloud|Pastel Horizon|Hazy Memory|Lucid Light","Cloud-shaped lamp|Polaroid of a blurred room|Spinning mobile"),
+mk("Static Void","Low-res green text, glitching screens, and something just behind the static.","00FF00 FF0000 1A1A1A D9D9D9","Low-Res Green|Cryptic Text|Void Black|Static Grey","Flickering CRT|Cryptic sticky note|Floppy disk"),
+mk("Cryptid Woods","Trail-cam flashes, misty pines, and a shape between the trees nobody can explain.","1B2620 4F5D53 8D7B68 2B2D42","Trail-Cam Night|Misty Pine|Moth Wing|Folklore Dusk","Trail camera|Plaster footprint cast|Thermos of black coffee"),
+mk("Ethereal","Sheer silk, moonlit mist, and something luminous just out of reach.","F8F9FA CAF0F8 D8E2DC E2ECE9","Sheer Silk|Bioluminescent Mist|Moonlit Silver|Twilight Fog","Sheer silk veil|Moonstone pendant|Dewdrop-glass vase"),
+mk("Witchy","Tarot candles, dried sage, and a cauldron humming at midnight.","231942 5E548E 1A1A1A 6B705C","Tarot Indigo|Amethyst|Black Candle|Dried Sage","Tarot deck|Sage bundle|Black taper candle"),
+mk("Vampiric","Crimson velvet, antique silver, and a candle that flickers when someone enters.","590D22 0B090A A4161A D3D3D3","Crimson Velvet|Nocturnal Black|Garnet|Antique Silver","Garnet ring|Antique silver goblet|Black lace cravat"),
+mk("Surrealism","Checkerboard floors, impossible skies, and a bowler hat floating where it shouldn’t.","111111 F8F9FA 3A86FF E07A5F","Checkerboard Black|Checkerboard White|Magritte Sky|Desert Horizon","Checkerboard tile|Bowler hat|Melting clock"),
+mk("Soft Dread","Pastel plush toys in a hallway where the light feels slightly wrong.","FFB3C1 1A1A1A F8F9FA 9B2226","Pastel Plush|Stark Shadow|Gauze White|Heavy Crimson","Worn teddy bear|Cracked music box|Gauze curtain"),
+mk("After Hours","A 3 AM diner, streetlight amber on wet asphalt, and neon humming over empty booths.","0D1B2A FF9F1C E63946 415A77","3 AM Asphalt|Streetlight Amber|Diner Neon|Wet Reflection","Neon diner sign|Thick ceramic coffee mug|Rain-slick umbrella"),
+mk("Quiet Luxury","Cashmere, saddle leather, and wealth that never announces itself.","E6DEC8 4A3F35 F9F8F6 2C2C2C","Cashmere Beige|Saddle Leather|Ivory Silk|Tailored Charcoal","Cashmere sweater|Leather tote|Slim gold watch"),
+mk("Clean Girl","Dewy skin, gold hoops, and a slicked-back bun at the pilates studio.","F7EDE2 D4AF37 FFFFFF D5BDAF","Dewy Skin|Gold Hoop|Crisp Tank|Nude Lip","Gold hoop earrings|Pilates mat|Lip balm tin"),
+mk("Scandinavian Minimalism","Gallery-white walls, pale oak, and the calm of nothing extra.","F8F9FA D4A373 ADB5BD E9ECEF","Gallery White|Pale Oak|Soft Grey|Diffused Light","Pale oak chair|Paper pendant lamp|Single-stem vase"),
+ao("Brutalism","Brutalist Concrete","8D99AE 2B2D42 EDF2F4 4A4E69","Raw Concrete|Monolith Shadow|Overcast Sky|Steel Rebar"),
+mk("Maximalism","Ruby velvet, peacock teal, and every wall covered in something wonderful.","9B2226 005F73 EE9B00 5F0F40","Ruby Velvet|Peacock Teal|Marigold|Plum","Mismatched gallery wall|Patterned velvet armchair|Stack of antique books")
+];
+[["Wabi-Sabi","Wabi-Sabi"],["Desert Western","Desert Western"],["Scandi Hygge","Scandi Hygge"],["Space Age Retro","Space Age Retro"],["Mermaidcore","Pearl Tide"],["Kidcore","Toybox"],["Forest Witchcore","Forest Witch"]].forEach(p=>{const o=OLD.find(x=>x[0]===p[0]);A.push([p[1],o[1],o[2],o[3]])});
 const h=(n,d,w,v,y,hx,nm,pr)=>{const H=hx.split(' '),N=nm.split('|');return [n,d,H.map((x,i)=>['#'+x,N[i]]),pr.split('|'),{w:w,v:v,d:y}]};
 const H=[
 h("Spider-Man","Spandex, web-lines, and a friendly neighborhood skyline.","Marvel","Classic",1962,"D71920 1560BD 171717 FFFFFF","Spandex Red|Skyline Blue|Web-Line Black|Mask-Eye White","Wrist web-shooters|Press-pass camera|Patched mask"),
@@ -121,7 +227,7 @@ function render(i,animate){
   face.innerHTML=
    '<div class="tape"></div>'+
    '<div class="no">№ '+String(i+1).padStart(2,'0')+' · of '+DECKS[deck].items.length+'</div>'+
-   '<h2 class="name">'+a[0]+'</h2>'+
+   '<h2 class="name'+(a[0].length>14?' long':'')+'">'+a[0]+'</h2>'+
    '<p class="desc">'+a[1]+'</p>'+
    '<div class="sw">'+a[2].map(c=>'<button class="chip" data-hex="'+c[0]+'"><i style="background:'+c[0]+'"></i><span><b>'+c[1]+'</b><em>'+c[0].toUpperCase()+'</em></span></button>').join('')+'</div>'+
    '<div class="tearwrap"><div class="stub"><div class="lbl"><span>Catalogue</span><button class="keep" data-k="'+kk+'">'+(keeps.indexOf(kk)<0?'Tear & keep':'Kept ✓')+'</button></div>'+file+
